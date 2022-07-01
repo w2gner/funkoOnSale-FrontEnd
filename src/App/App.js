@@ -1,6 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
+import { Link } from 'react-router-dom'
 import { Breadcrumb, Layout, Menu, Card, Button, Space } from 'antd';
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;
@@ -23,7 +24,7 @@ const App = () => (
         <img src='https://upload.wikimedia.org/wikipedia/pt/6/61/Microsoft_Paint-3D_Logo.png'
           className="logo" />
         <Button>teste</Button>
-
+        <Link to="/login" >Login</Link>
       </Menu>
     </Header>
     <Content
@@ -31,6 +32,7 @@ const App = () => (
         padding: '0 50px',
       }}
     >
+       <Link to="/login" >Login</Link>
       <Breadcrumb
         style={{
           margin: '16px 0',

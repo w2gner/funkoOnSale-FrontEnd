@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import { FiLogIn } from 'react-icons/fi';
+import { Navigate, useNavigate, Link } from "react-router-dom";
+import { Input } from 'antd';
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import './Login.css';
 
 const Login = () => {
-  return (
-    <section className="logon-container">
-      <section className="form">
-        <form>
-          <h1>Faça seu logon</h1>
+  const [value, setValue] = useState('');
+  const navigate = useNavigate();
+  // const [id, setId] = useState('');
+  // this.preventDefault();
+  // navigate.push('/login');
+  const handleLogin = () => {
+    // navigate('/home');
+    window.location.href('/login')
+  }
 
-          <input placeholder="Sua ID"
-            value=""
-          />
-          <button className="button" type="submit">Entrar</button>
-          <Link className="back-link" to="/register">
-            <FiLogIn size={16} color="#E02041" />
-            Não tenho cadastro
-          </Link>
-        </form>
-      </section>
-    </section>
+
+  return (
+    <>
+      <div className="logon-container">
+        <section className="form">
+          <form onSubmit={handleLogin()}>
+            <h1>Faça seu logon</h1>
+            <Input
+              // value={id}
+              // onChange={(e) => handleLogin}
+              placeholder="Insira seu usuário"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+            />
+            <button className="button" type="submit">Entrar</button>
+          </form>
+        </section>
+      </div>
+    </>
   );
 }
 
