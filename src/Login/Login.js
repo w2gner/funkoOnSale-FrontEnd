@@ -12,7 +12,6 @@ const Login = () => {
   // navigate.push('/login');
   const handleLogin = () => {
     // navigate('/home');
-    window.location.href('/login')
   }
 
 
@@ -21,7 +20,7 @@ const Login = () => {
       <div className="logon-container">
         <section className="form">
           <form onSubmit={handleLogin()}>
-            <h1>Faça seu logon</h1>
+            <h1>Faça seu login</h1>
             <Input
               // value={id}
               // onChange={(e) => handleLogin}
