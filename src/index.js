@@ -4,6 +4,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import Login from './Login';
+import Cadastro from './Cadastro';
+import Funko from './Funko';
 import {
   BrowserRouter,
   Routes,
@@ -18,6 +20,8 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/home" element={<App />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/funko" element={<Funko />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

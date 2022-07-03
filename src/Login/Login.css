@@ -1,11 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+}
+body{
+    padding-top: 5vh;
+    background-color: aqua;
+    background-size: cover;
+    background-position-y: 0px;
+
+}
 .logon-container {
-    width: 100%;
-    max-width: 1120px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    opacity:85%;
+    text-align: center;
 }
 
 .logon-container section.form {
@@ -15,6 +30,7 @@
 }
 
 .logon-container section.form form {
+    
     margin-top: 100 px;
 }
 
@@ -32,12 +48,15 @@
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
+    
 }
 
 .logon-container section.form form a svg {
     margin-right: 8px;
+    
 }
 
 .logon-container section.form form a:hover {
+    
     opacity: 0.8;
 }

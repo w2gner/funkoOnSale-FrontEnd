@@ -22,9 +22,11 @@ const Login = () => {
           <form onSubmit={handleLogin()}>
             <h1>Faça seu login</h1>
             <Input
-              // value={id}
-              // onChange={(e) => handleLogin}
               placeholder="Insira seu usuário"
+              prefix={<UserOutlined className="site-form-item-icon" />}
+            />
+            <Input
+              placeholder="Insira sua senha"
               prefix={<UserOutlined className="site-form-item-icon" />}
             />
             <button className="button" type="submit">Entrar</button>

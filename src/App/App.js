@@ -13,18 +13,12 @@ const App = () => (
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
-        items={new Array(3).fill(null).map((_, index) => {
-          const key = index + 1;
-          return {
-            key,
-            label: `nav ${key}`,
-          };
-        })}
       >
-        <img src='https://upload.wikimedia.org/wikipedia/pt/6/61/Microsoft_Paint-3D_Logo.png'
+        <img alt="foto" src='https://upload.wikimedia.org/wikipedia/pt/6/61/Microsoft_Paint-3D_Logo.png'
           className="logo" />
-        <Button>teste</Button>
-        <Link to="/login" >Login</Link>
+        <Link style={{color:'white', marginLeft: '50px'}}to="/login" >Login</Link>
+        <Link style={{color:'white', marginLeft: '50px'}}to="/cadastro" >Cadastro</Link>
+        <Link style={{color:'white', marginLeft: '50px'}}to="/funko" >Funko</Link>
       </Menu>
     </Header>
     <Content
@@ -32,7 +26,6 @@ const App = () => (
         padding: '0 50px',
       }}
     >
-       <Link to="/login" >Login</Link>
       <Breadcrumb
         style={{
           margin: '16px 0',
@@ -64,14 +57,58 @@ export default App;
 
 function createCard(cardName, price, image) {
   return (
-    <Space align="baseline">
+    <Space align="left">
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240 }
+      
+      }
         cover={<img alt="example" src="https://cf.shopee.com.br/file/65069c28a78fbd99e06ae0279c9979dc" />}
       >
+        
+        <Meta title={cardName} description={price} />
+      </Card>
+      <Card
+        hoverable
+        style={{ width: 240 }
+      
+      }
+        cover={<img alt="example" src="https://m.media-amazon.com/images/I/816kbALacOL._AC_SL1500_.jpg" />}
+      >
+        
+        <Meta title={cardName} description={price} />
+      </Card>
+      <Card
+        hoverable
+        style={{ width: 240 }
+      
+      }
+        cover={<img alt="example" src="https://m.media-amazon.com/images/I/51VmjaTPf6L._AC_.jpg" />}
+      >
+        
+        <Meta title={cardName} description={price} />
+      </Card>
+      <Card
+        hoverable
+        style={{ width: 240 }
+      
+      }
+        cover={<img alt="example" src="https://cf.shopee.com.br/file/559048b94cb35d9dce98271e54d39329" />}
+      >
+        
+        <Meta title={cardName} description={price} />
+      </Card>
+      <Card
+        hoverable
+        style={{ width: 240 }
+      
+      }
+        cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
+      >
+        
         <Meta title={cardName} description={price} />
       </Card>
     </Space>
+    
   )
 }
