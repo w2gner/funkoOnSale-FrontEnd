@@ -56,11 +56,17 @@ const Login = () => {
               iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="Login" type="submit">Entrar</button>
-            <button className="Voltar" type="submit" onClick={back}>Voltar</button>
             <Button
               htmlType='submit'
               type="primary"
+              onClick={back}
+            >
+              Voltar
+            </Button>
+            <Button
+              htmlType='submit'
+              type="primary"
+
             >
               Login
             </Button>

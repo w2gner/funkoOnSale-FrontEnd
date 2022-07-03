@@ -2,7 +2,7 @@ import React from "react";
 import './Cadastro.css';
 import template from "./Cadastro.jsx";
 import { InfoCircleOutlined, UserOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 import { useNavigate } from "react-router";
 
 const Cadastro = () => {
@@ -48,8 +48,20 @@ const Cadastro = () => {
                 <div class="full-box">
                     <label for="Confirme sua senha">
                     </label>
-                    <button className="Cadastrar" type="submit">Cadastrar</button>
-                    <button className="Voltar" type="submit" onClick={back}>Voltar</button>
+                    <Button
+                        htmlType='submit'
+                        type="primary"
+
+                    >
+                        Cadastrar
+                    </Button>
+                    <Button
+                        htmlType='submit'
+                        type="primary"
+                        onClick={back}
+                    >
+                        Voltar
+                    </Button>
                 </div>
             </form>
         </div>
