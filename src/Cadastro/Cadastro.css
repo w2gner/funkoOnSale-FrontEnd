@@ -18,7 +18,7 @@ body{
     background-image: url('imagens/fundoteste.jpg');*/
     background-size: cover;
     background-position-y: 0px;
-
+    background-color: #323232;
 }
 #main-container{
     width: 500px;

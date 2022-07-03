@@ -1,7 +1,14 @@
 import React from "react";
 import './Cadastro.css';
 import template from "./Cadastro.jsx";
+import { InfoCircleOutlined, UserOutlined,EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input } from 'antd';
+import { Checkbox } from 'antd';
 
+const onChange = (e) => {
+    console.log(`checked = ${e.target.checked}`);
+    };
+const App = () => <Checkbox onChange={onChange}>Checkbox</Checkbox>;
 class Cadastro extends React.Component {
     render() {
         return (
@@ -9,43 +16,38 @@ class Cadastro extends React.Component {
                 <h1>Cadastre seu personagem</h1>
                 <form id="cadastroperso">
                     <div class="full-box">
-                        <label for="nome">Nome do Personagem:</label>
-                        <input type="text" name="personagem" id="nome" placeholder="Digite o nome do Personagem" />
+                        <label for="nome">Nome Completo:</label>
+                        <Input
+                            placeholder="Insira seu nome"
+                            prefix={<UserOutlined className="site-form-item-icon" />}
+                            />
                     </div>
                     <div class="full-box">
-                        <label for="cidade"> Cidade Natal:</label>
-                        <input type="text" name="cidade" id="cidade" placeholder="Digite a cidade natal" />
+                        <label for="User"> Usuario:</label>
+                        <Input
+                            placeholder="Insira seu usuário"
+                            prefix={<UserOutlined className="site-form-item-icon" />}
+                            />
                     </div>
                     <div class="full-box">
-                        <label for="Classe">
-                            <abbr title="Ex: Guerreiro, Arqueiro, Mago">Classe:</abbr>
+                        <label for="Senha"> Insira sua Senha:  </label>
+                        <Input.Password
+                                placeholder="insira sua senha"
+                                iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                            />
+                    </div>
+                    <div class="full-box">
+                        <label for="Confirma"> Confirme sua senha: </label>
+                        <Input.Password
+                            placeholder="Confirmar"
+                            iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                    </div>
+                    <div class="full-box">
+                    <label for="Confirme sua senha">
                         </label>
-                        <input type="text" name="classe" id="classe" placeholder="Digite sua classe " />
-                    </div>
-                    <div class="full-box">
-                        <label for="cidade">
-                            <abbr title="Ex: Humano, Deus, Planeta">Raça:</abbr>
-                        </label>
-                        <input type="text" name="raça" id="raça" placeholder="Digite sua raça" />
-                    </div>
-                    <div class="full-box">
-                        <label for="apetrechos">
-                            <abbr title="Ex: Martelo, Armadura, Magia">Armas/Poderes:</abbr>
-                        </label>
-                        <input type="text" name="apetrechos" id="apetrechos" placeholder="Digite armas ou magias usadas" />
-                    </div>
-                    <div class="half-box">
-                        <label for="tutorial">Realizar Tutorial:</label>
-                        <label for="Sim">Sim</label>
-                        <input type="checkbox" name="checkboxSim" id="checkboxSim" placeholder="Sim, eu quero" />
-                        <label for="Sim">Não</label>
-                        <input type="checkbox" name="checkboxNao" id="checkboxNao" placeholder="Nao quero" />
-                    </div>
-                    <div class="full-box">
-                        <input type="submit" value="Criar personagem" id="criar" />
-                    </div>
-                    <div class="full-box">
-                        <input type="submit" value="Voltar" id="Voltar" formaction="index.html" />
+                    <button className="Cadastrar" type="submit">Cadastrar</button>
+                    <button className="Voltar" type="submit" formAction='/'>Voltar</button>
                     </div>
                 </form>
             </div>

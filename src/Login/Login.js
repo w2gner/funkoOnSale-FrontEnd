@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate, useNavigate, Link } from "react-router-dom";
 import { Input } from 'antd';
-import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, UserOutlined,EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import './Login.css';
 
 const Login = () => {
@@ -25,11 +25,12 @@ const Login = () => {
               placeholder="Insira seu usuário"
               prefix={<UserOutlined className="site-form-item-icon" />}
             />
-            <Input
-              placeholder="Insira sua senha"
-              prefix={<UserOutlined className="site-form-item-icon" />}
-            />
-            <button className="button" type="submit">Entrar</button>
+            <Input.Password
+                placeholder="insira sua senha"
+                iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+              />
+            <button className="Login" type="submit">Entrar</button>
+            <button className="Voltar" type="submit" formAction='/'>Voltar</button>
           </form>
         </section>
       </div>

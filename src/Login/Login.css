@@ -10,7 +10,7 @@
     width: 500px;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: rgb(241, 234, 234);
     padding: 25px;
     border-radius: 15px;
     opacity: 85%;
@@ -53,4 +53,7 @@
 .logon-container section.form form a:hover {
 
     opacity: 0.8;
+}
+body{
+    background-color: rgb(255, 255, 255);
 }
