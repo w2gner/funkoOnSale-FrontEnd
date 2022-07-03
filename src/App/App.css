@@ -36,5 +36,6 @@
 .logo {
   height: 25px;
   width: 25px;
+  align-self: center;
   display: block;
 }
