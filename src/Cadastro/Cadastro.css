@@ -5,6 +5,10 @@
     font-family: Helvetica, sans-serif;
     color: rgb(0, 0, 0);
 }
+Button {
+    margin-top: 50px;
+}
+
 input,label{
     display: block;
     width: 100%;
@@ -43,32 +47,10 @@ form{
     flex: 1 1 100%;
     position: relative;
 }
-/*.half-box{
-    flex: 1 1 45%;
-    position: relative;
-}*/
+
 label{
     font-weight: bold;
     font-size: .8rem;
 }
-input{
-    border-bottom: 2px #323232;
-    padding: 10px;
-    font-size: .9rem;
-    margin-bottom: 40px;
-}
-input[type="submit"]{
-    background-color: #a09b9b;
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-    cursor: pointer;
-}
-#checkboxSim, #checkboxSim-label{
-    display: inline-block;
-    width: auto;
-}
-#checkboxNao, #checkboxNao-label{
-    display: inline-block;
-    width: auto;
-}
+
+

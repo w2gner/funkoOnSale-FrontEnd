@@ -15,7 +15,7 @@ const Cadastro = () => {
 
     return (
         <div id="main-container">
-            <h1>Cadastre seu personagem</h1>
+            <h1>Criar usuario</h1>
             <form id="cadastroperso">
                 <div class="full-box">
                     <label for="nome">Nome Completo:</label>
