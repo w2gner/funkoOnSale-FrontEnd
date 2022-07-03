@@ -15,7 +15,7 @@ input:focus,label:focus{
 }
 body{
     padding-top: 5vh;
-    background-image: url('imagens/fundoteste.jpg');
+    /*background-image: url('imagens/fundoteste.jpg');*/
     background-size: cover;
     background-position-y: 0px;
 
