@@ -1,35 +1,64 @@
 import React, { useState } from 'react';
-import { Navigate, useNavigate, Link } from "react-router-dom";
-import { Input } from 'antd';
-import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { useNavigate } from "react-router";
+import { Input, Button } from 'antd';
+import { LockOutlined, UserOutlined, EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import axios from 'axios';
 import './Login.css';
 
+axios.defaults.baseURL = 'http://localhost:4000';
+
 const Login = () => {
-  const [value, setValue] = useState('');
-  const navigate = useNavigate();
-  // const [id, setId] = useState('');
-  // this.preventDefault();
-  // navigate.push('/login');
-  const handleLogin = () => {
-    // navigate('/home');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  let navigate = useNavigate();
+
+  let data = {
+    email: email,
+    password: password,
   }
 
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      console.log("Email: " + email);
+      console.log("Senha: " + password);
+      await axios.post('login', data).then(response => {
+        if (response.status === 200) {
+          navigate('/home')
+        } else {
+          alert('Usuário ou senha incorretos');
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <>
       <div className="logon-container">
         <section className="form">
-          <form onSubmit={handleLogin()}>
+          <form onSubmit={handleLogin}>
             <h1>Faça seu login</h1>
             <Input
+              size="large"
               placeholder="Insira seu usuário"
               prefix={<UserOutlined className="site-form-item-icon" />}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <Input
-              placeholder="Insira sua senha"
-              prefix={<UserOutlined className="site-form-item-icon" />}
+            <Input.Password
+              size="large"
+              placeholder="insira sua senha"
+              prefix={<LockOutlined Outlined className="site-form-item-icon" />}
+              iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="button" type="submit">Entrar</button>
+            <Button
+              htmlType='submit'
+              type="primary"
+            >
+              Login
+            </Button>
           </form>
         </section>
       </div>
