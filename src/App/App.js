@@ -10,58 +10,41 @@ const { Meta } = Card;
 axios.defaults.baseURL = 'http://localhost:4000';
 
 const App = () => {
-  const [funkos, setFunkos] = useState('');
+  const [cards, setCards] = useState('');
 
-  let count = 0;
-
-  // useEffect(() => {
-  //   if (count === 0) {
-  //     try {
-  //       axios.get('users').then(response => {
-  //         if (response.status === 200) {
-  //           console.log(funkos)
-  //           setFunkos(response);
-  //         } else {
-  //           alert('Usuário ou senha incorretos');
-  //         }
-  //       });
-  //       count++;
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  // }, [funkos]);
-
-  onLoad = function () {
-    try {
-      axios.get('users').then(response => {
-        if (response.status === 200) {
-          console.log(funkos)
-          setFunkos(response);
-        } else {
-          alert('Usuário ou senha incorretos');
-        }
-      });
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    async function getFromApi() {
+      let cardsArray = [];
+      try {
+        await axios.get('users').then(response => {
+          if (response.status === 200) {
+            response.data.forEach(funko => {
+              funko.funkos.forEach(funko => {
+                if (funko.sale === true) {
+                  cardsArray.push(<Space direction="vertical" size={20}>
+                    <Card
+                      className='Card'
+                      hoverable
+                      style={{ width: 240, marginLeft: '30px' }}
+                      cover={<img alt="example" src={funko.url} />}
+                    >
+                      <Meta title={funko.title} description={`R$ ${funko.value}`} />
+                    </Card>
+                  </Space>);
+                }
+              });
+            });
+            setCards(cardsArray);
+          } else {
+            alert('Usuário ou senha incorretos');
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
-  };
-
-  function renderCards() {
-    funkos.forEach(funko => {
-      return (
-        <Space direction="vertical" size={20}>
-          <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={<img alt="example" src={funko.url} />}
-          >
-            <Meta title={funko.name} description={funko.description} />
-          </Card>
-        </Space>
-      )
-    });
-  }
+    getFromApi();
+  }, []);
 
   return (
     <Layout className="layout">
@@ -95,7 +78,7 @@ const App = () => {
         <div>
           <div className="space-align-container">
             <div className="space-align-block">
-              {renderCards}
+              {cards}
             </div>
           </div>
         </div>

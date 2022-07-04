@@ -16,6 +16,7 @@ const Login = () => {
     email: email,
     password: password,
   }
+  
   function back(e) {
     e.preventDefault();
     navigate("/home")
@@ -24,11 +25,14 @@ const Login = () => {
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      console.log("Email: " + email);
-      console.log("Senha: " + password);
       await axios.post('login', data).then(response => {
         if (response.status === 200) {
+          console.log(response.data)
+          localStorage.setItem('userId', response.data);
           navigate('/home')
+        }
+        else if (response.status === 404) {
+          alert('Usuário ou senha incorretos');
         } else {
           alert('Usuário ou senha incorretos');
         }
@@ -52,7 +56,7 @@ const Login = () => {
             />
             <Input.Password
               size="large"
-              placeholder="insira sua senha"
+              placeholder="Insira sua senha"
               prefix={<LockOutlined Outlined className="site-form-item-icon" />}
               iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
               onChange={(e) => setPassword(e.target.value)}
