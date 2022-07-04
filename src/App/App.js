@@ -1,105 +1,114 @@
-import React from 'react';
+import React, { onLoad, useEffect, useState, componentDidMount } from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 import { Link } from 'react-router-dom'
 import { Breadcrumb, Layout, Menu, Card, Space } from 'antd';
+import axios from 'axios';
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;
 
-const App = () => (
-  <Layout className="layout">
-    <Header>
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}
-      >
-        <img alt="foto" src='https://upload.wikimedia.org/wikipedia/pt/6/61/Microsoft_Paint-3D_Logo.png'
-          className="logo" />
-        <Link style={{ color: 'white', marginLeft: '50px' }} to="/login" >Login</Link>
-        <Link style={{ color: 'white', marginLeft: '50px' }} to="/cadastro" >Cadastro</Link>
-        <Link style={{ color: 'white', marginLeft: '50px' }} to="/funko" >Funko</Link>
-      </Menu>
-    </Header>
-    <Content
-      style={{
-        padding: '0 50px',
-      }}
-    >
-      <Breadcrumb
+axios.defaults.baseURL = 'http://localhost:4000';
+
+const App = () => {
+  const [funkos, setFunkos] = useState('');
+
+  let count = 0;
+
+  // useEffect(() => {
+  //   if (count === 0) {
+  //     try {
+  //       axios.get('users').then(response => {
+  //         if (response.status === 200) {
+  //           console.log(funkos)
+  //           setFunkos(response);
+  //         } else {
+  //           alert('Usuário ou senha incorretos');
+  //         }
+  //       });
+  //       count++;
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  // }, [funkos]);
+
+  onLoad = function () {
+    try {
+      axios.get('users').then(response => {
+        if (response.status === 200) {
+          console.log(funkos)
+          setFunkos(response);
+        } else {
+          alert('Usuário ou senha incorretos');
+        }
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  function renderCards() {
+    funkos.forEach(funko => {
+      return (
+        <Space direction="vertical" size={20}>
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={<img alt="example" src={funko.url} />}
+          >
+            <Meta title={funko.name} description={funko.description} />
+          </Card>
+        </Space>
+      )
+    });
+  }
+
+  return (
+    <Layout className="layout">
+      <Header>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+        >
+          <img alt="foto" src='https://upload.wikimedia.org/wikipedia/pt/6/61/Microsoft_Paint-3D_Logo.png'
+            className="logo" />
+          <Link style={{ color: 'white', marginLeft: '50px' }} to="/login" >Login</Link>
+          <Link style={{ color: 'white', marginLeft: '50px' }} to="/cadastro" >Cadastro</Link>
+          <Link style={{ color: 'white', marginLeft: '50px' }} to="/funko" >Funko</Link>
+        </Menu>
+      </Header>
+      <Content
         style={{
-          margin: '16px 0',
+          padding: '0 50px',
         }}
       >
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <div>
-        <div className="space-align-container">
-          <div className="space-align-block">
-            {createCard("Funko 1", "R$56,40")}
+        <Breadcrumb
+          style={{
+            margin: '16px 0',
+          }}
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <div>
+          <div className="space-align-container">
+            <div className="space-align-block">
+              {renderCards}
+            </div>
           </div>
         </div>
-      </div>
-    </Content>
-    <Footer
-      style={{
-        textAlign: 'center',
-      }}
-    >
-      Criado com 👌 por Wagner / Darlan
-    </Footer>
-  </Layout >
-);
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Criado com 👌 por Wagner / Darlan
+      </Footer>
+    </Layout >
+  );
+};
 
 export default App;
-
-function createCard(cardName, price, image) {
-  return (
-    <Space align="left">
-      <Card
-        hoverable
-        style={{ width: 240, margin: '15' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/65069c28a78fbd99e06ae0279c9979dc" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-      <Card
-        hoverable
-        style={{ width: 240, marginLeft: '20px' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/559048b94cb35d9dce98271e54d39329" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-      <Card
-        hoverable
-        style={{ width: 240, marginLeft: '20px' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-      <Card
-        hoverable
-        style={{ width: 240, marginLeft: '20px' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-      <Card
-        hoverable
-        style={{ width: 240, marginLeft: '20px' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-      <Card
-        hoverable
-        style={{ width: 240, marginLeft: '20px' }}
-        cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
-      >
-        <Meta title={cardName} description={price} />
-      </Card>
-    </Space>
-  )
-}
