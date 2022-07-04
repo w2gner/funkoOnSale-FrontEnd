@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
 import { Link } from 'react-router-dom'
-import { Breadcrumb, Layout, Menu, Card, Button, Space } from 'antd';
+import { Breadcrumb, Layout, Menu, Card, Space } from 'antd';
 const { Header, Content, Footer } = Layout;
 const { Meta } = Card;
 
@@ -60,42 +60,42 @@ function createCard(cardName, price, image) {
     <Space align="left">
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, margin: '15' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/65069c28a78fbd99e06ae0279c9979dc" />}
       >
         <Meta title={cardName} description={price} />
       </Card>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, marginLeft: '20px' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/559048b94cb35d9dce98271e54d39329" />}
       >
         <Meta title={cardName} description={price} />
       </Card>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, marginLeft: '20px' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
       >
         <Meta title={cardName} description={price} />
       </Card>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, marginLeft: '20px' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
       >
         <Meta title={cardName} description={price} />
       </Card>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, marginLeft: '20px' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
       >
         <Meta title={cardName} description={price} />
       </Card>
       <Card
         hoverable
-        style={{ width: 240 }}
+        style={{ width: 240, marginLeft: '20px' }}
         cover={<img alt="example" src="https://cf.shopee.com.br/file/2bb621a80f7d3b8333b8c62d7b5f2564" />}
       >
         <Meta title={cardName} description={price} />

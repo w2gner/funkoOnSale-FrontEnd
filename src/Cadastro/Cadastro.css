@@ -1,36 +1,42 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
     color: rgb(0, 0, 0);
 }
+
 Button {
     margin-top: 50px;
 }
 
-input,label{
+input,
+label {
     display: block;
     width: 100%;
 }
-input:focus,label:focus{
+
+input:focus,
+label:focus {
     outline: none;
 
 }
-body{
+
+body {
     /*padding-top: 5vh;
     background-image: url('imagens/fundoteste.jpg');*/
     background-size: cover;
     background-position-y: 0px;
     background-color: #323232;
 }
-#main-container{
+
+#main-container {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     padding: 25px;
     border-radius: 15px;
-    opacity:85%;
+    opacity: 85%;
 }
 
 #main-container h1 {
@@ -38,19 +44,54 @@ body{
     margin-bottom: 25px;
     font-size: 1.6rem;
 }
-form{
+
+form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.full-box{
+
+.full-box {
     flex: 1 1 100%;
     position: relative;
 }
 
-label{
+
+label {
+    margin-top: 20px;
+    color: aliceblue;
     font-weight: bold;
-    font-size: .8rem;
+    font-size: 0.9rem;
+}
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1f2330;
+        color: #f0ece2;
+    }
+
+    label{
+        
+    }
+
+    h1 {
+        color: #7579e7;
+    }
+
+    h3 {
+        color: #69779b;
+    }
+
+    img {
+        filter: brightness(0.9);
+    }
 }
 
 
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #cac4ce;
+    }
+}

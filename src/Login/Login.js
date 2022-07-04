@@ -51,6 +51,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <Input.Password
+              size="large"
               placeholder="insira sua senha"
               prefix={<LockOutlined Outlined className="site-form-item-icon" />}
               iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}

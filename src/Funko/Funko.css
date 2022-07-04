@@ -10,6 +10,10 @@
     display: none;
 }
 
+.description{
+    width: 500px;
+}
+
 Button {
     margin-top: 50px;
 }
@@ -56,37 +60,4 @@ Button {
 
 .logon-container section.form form a:hover {
     opacity: 0.8;
-}
-
-
-/* Dark mode */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1f2330;
-        color: #f0ece2;
-    }
-
-    h1 {
-        color: #7579e7;
-    }
-
-    h3 {
-        color: #69779b;
-    }
-
-    img {
-        filter: brightness(0.9);
-    }
-}
-
-.descrition{
-    width: 500px;
-    text-align: center;
-    display: block;
-}
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: #cac4ce;
-    }
 }

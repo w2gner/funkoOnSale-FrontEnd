@@ -10,7 +10,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
